@@ -1,27 +1,33 @@
 package sg.edu.nus.adproject.Model;
 
-import jakarta.persistence.*;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
+
 
 @Entity
-@Table(name = "admin")
+@Table(name = "daily_view")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Admin {
+public class DailyView {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true, length = 50)
-    private String username;
+    @Column(nullable = false)
+    private LocalDate date;
 
     @Column(nullable = false)
-    private String password;
+    private Integer loginCount;
+
+    @Column(nullable = false)
+    private Integer searchCount;
 
     // Getters and Setters
 }

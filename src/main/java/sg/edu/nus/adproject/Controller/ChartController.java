@@ -1,68 +1,68 @@
 package sg.edu.nus.adproject.Controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import sg.edu.nus.adproject.Model.MonthlyStats;
-import sg.edu.nus.adproject.Service.StatsService;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.web.bind.annotation.GetMapping;
+//import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.RequestParam;
+//import org.springframework.web.bind.annotation.RestController;
+//import sg.edu.nus.adproject.Service.DailyViewService;
+//
+//
+//import java.util.*;
+//
+//@RestController
+//@RequestMapping("/api")
+//public class ChartController {
+//    // Inject the StatsService so it’s never null
+//    @Autowired
+//    private DailyViewService dailyViewService;
+//
+//    @GetMapping("/chart")
+//    public Map<String, Object> getChartData(@RequestParam(name="date", required=false) String selectedMonthStr) {
+//
+//
+//        // 1. Get the last 6 months from the DB using the injected service
+//        List<MonthlyStats> sixMonthsData = statsService.getStatsForLastSixMonths(selectedMonthStr);
+//
+//        // 2. Prepare collections for categories, logins, and searchings
+//        List<String> categories = new ArrayList<>();
+//        List<Integer> loginsData = new ArrayList<>();
+//        List<Integer> searchesData = new ArrayList<>();
+//
+//        // Populate each list from the retrieved MonthlyStats
+//        for (MonthlyStats ms : sixMonthsData) {
+//            categories.add(ms.getMonthString());  // e.g. "09/2023"
+//            loginsData.add(ms.getLogins());       // e.g. 5
+//            searchesData.add(ms.getSearches());   // e.g. 120
+//        }
+//
+//        // 3. Create the "series" objects expected by your frontend
+//        Map<String, Object> loginsSeries = new HashMap<>();
+//        loginsSeries.put("name", "Logins");
+//        loginsSeries.put("data", loginsData);
+//
+//        Map<String, Object> searchesSeries = new HashMap<>();
+//        searchesSeries.put("name", "Searchings");
+//        searchesSeries.put("data", searchesData);
+//
+//        List<Map<String, Object>> seriesList = new ArrayList<>();
+//        seriesList.add(loginsSeries);
+//        seriesList.add(searchesSeries);
+//
+//        // 4. Final response structure
+//        Map<String, Object> response = new HashMap<>();
+//        response.put("categories", categories);
+//        response.put("series", seriesList);
+//
+//        // Add your custom fields
+//        response.put("ok", true);
+//        response.put("statusText", "Network response was not ok");
+//
+//        return response;
+//    }
+//}
 
-import java.util.*;
-
-@RestController
-@RequestMapping("/api")
-public class ChartController {
-    // Inject the StatsService so it’s never null
-    @Autowired
-    private StatsService statsService;
-
-    @GetMapping("/chart")
-    public Map<String, Object> getChartData(@RequestParam(name="month", required=false) String selectedMonthStr) {
-
-
-        // 1. Get the last 6 months from the DB using the injected service
-        List<MonthlyStats> sixMonthsData = statsService.getStatsForLastSixMonths(selectedMonthStr);
-
-        // 2. Prepare collections for categories, logins, and searchings
-        List<String> categories = new ArrayList<>();
-        List<Integer> loginsData = new ArrayList<>();
-        List<Integer> searchesData = new ArrayList<>();
-
-        // Populate each list from the retrieved MonthlyStats
-        for (MonthlyStats ms : sixMonthsData) {
-            categories.add(ms.getMonthString());  // e.g. "09/2023"
-            loginsData.add(ms.getLogins());       // e.g. 5
-            searchesData.add(ms.getSearches());   // e.g. 120
-        }
-
-        // 3. Create the "series" objects expected by your frontend
-        Map<String, Object> loginsSeries = new HashMap<>();
-        loginsSeries.put("name", "Logins");
-        loginsSeries.put("data", loginsData);
-
-        Map<String, Object> searchesSeries = new HashMap<>();
-        searchesSeries.put("name", "Searchings");
-        searchesSeries.put("data", searchesData);
-
-        List<Map<String, Object>> seriesList = new ArrayList<>();
-        seriesList.add(loginsSeries);
-        seriesList.add(searchesSeries);
-
-        // 4. Final response structure
-        Map<String, Object> response = new HashMap<>();
-        response.put("categories", categories);
-        response.put("series", seriesList);
-
-        // Add your custom fields
-        response.put("ok", true);
-        response.put("statusText", "Network response was not ok");
-
-        return response;
-    }
-}
-
-
+//...................
     // Example: GET /api/chart?month=09/2023
 //    @GetMapping("/chart")
 //    public Map<String, Object> getChartData(@RequestParam("month") String selectedMonthStr) {
@@ -112,11 +112,6 @@ public class ChartController {
 //    }
 //}
 //
-
-        
-
-
-
 
         // You can now use 'selectedMonth' (e.g., "09/2023")
         // to filter data or do other logic.
